@@ -49,9 +49,11 @@ WHERE
 GROUP BY
 	P.ID, U.ID, U.Username, P.CreationTime, P.LocationName;
 
+
 ----------------------------------------------------------
 -- Profiili Lehe päring
 ----------------------------------------------------------
+
 BEGIN
 	SET NOCOUNT ON;
 
@@ -217,6 +219,7 @@ GROUP BY
 	CAST(U.CreationTime AS DATE)
 ORDER BY 
 	CAST(U.CreationTime AS DATE) DESC;
+
 
 ----------------------------------------------------------
 -- Userite jagunemine sooliselt
