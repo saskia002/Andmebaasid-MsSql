@@ -1,0 +1,30 @@
+USE MiniInsta;
+
+INSERT INTO dbo.Gender VALUES (1, 'Undefined'), (2, 'Male'), (3, 'Female')
+INSERT INTO dbo.MediaType VALUES (1, 'Photo'), (2, 'Video')
+GO
+
+CREATE SEQUENCE dbo.UserSequence AS Int
+  START WITH 100
+  INCREMENT BY 1
+  ;
+CREATE SEQUENCE dbo.PostSequence AS Int
+  START WITH 100
+  INCREMENT BY 1
+  ;
+CREATE SEQUENCE dbo.CommentSequence AS Int
+  START WITH 100
+  INCREMENT BY 1
+  ;
+CREATE SEQUENCE dbo.MediaSequence AS Int
+  START WITH 100
+  INCREMENT BY 1
+  ;
+GO
+
+ALTER TABLE dbo.[User] ADD  CONSTRAINT [DF_User_ID]  DEFAULT (NEXT VALUE FOR UserSequence) FOR [ID]
+ALTER TABLE dbo.Post ADD  CONSTRAINT [DF_Post_ID]  DEFAULT (NEXT VALUE FOR PostSequence) FOR [ID]
+ALTER TABLE dbo.Comment ADD  CONSTRAINT [DF_Comment_ID]  DEFAULT (NEXT VALUE FOR CommentSequence) FOR [ID]
+ALTER TABLE dbo.PostMedia ADD  CONSTRAINT [DF_PostMedia_ID]  DEFAULT (NEXT VALUE FOR MediaSequence) FOR [ID]
+GO
+
