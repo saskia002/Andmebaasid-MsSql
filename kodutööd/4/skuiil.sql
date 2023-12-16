@@ -3,6 +3,7 @@ IF OBJECT_ID('dbo.GetNumbers', 'P') IS NOT NULL
 GO
 
 CREATE PROCEDURE dbo.GetNumbers (@inpCounter INT = 0) AS BEGIN
+	SET NOCOUNT ON; -- tuleb liiga palju spämmi kui @inpCounter on suur
 	CREATE TABLE #tt_num (
 		num INT
 	);
